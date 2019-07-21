@@ -337,37 +337,37 @@ asm(".space 32");
 
 static const struct DoorAnimFrame sDoorOpenAnimFrames[] =
 {
-    {4, -1},
-    {4, 0},
-    {4, 0x80},
-    {4, 0x100},
-    {0, 0},
+    {.time = 4, .offset = 0xFFFF},
+    {.time = 4, .offset = 0},
+    {.time = 4, .offset = 0x80},
+    {.time = 4, .offset = 0x100},
+    {.time = 0, .offset = 0},
 };
 
 static const struct DoorAnimFrame sBigDoorOpenAnimFrames[] =
 {
-    {4, -1},
-    {4, 0},
-    {4, 0x100},
-    {4, 0x200},
-    {0, 0},
+    {.time = 4, .offset = 0xFFFF},
+    {.time = 4, .offset = 0},
+    {.time = 4, .offset = 0x100},
+    {.time = 4, .offset = 0x200},
+    {.time = 0, .offset = 0},
 };
 
 static const struct DoorAnimFrame sDoorCloseAnimFrames[] =
 {
-    {4, 0x100},
-    {4, 0x80},
-    {4, 0},
-    {4, -1},
-    {0, 0},
+    {.time = 4, .offset = 0x100},
+    {.time = 4, .offset = 0x80},
+    {.time = 4, .offset = 0},
+    {.time = 4, .offset = 0xFFFF},
+    {.time = 0, .offset = 0},
 };
 
 static const struct DoorAnimFrame sBigDoorCloseAnimFrames[]={
-    {4, 0X200},
-    {4, 0X100},
-    {4, 0},
-    {4, -1},
-    {0, 0},
+    {.time = 4, .offset = 0x200},
+    {.time = 4, .offset = 0x100},
+    {.time = 4, .offset = 0},
+    {.time = 4, .offset = 0xFFFF},
+    {.time = 0, .offset = 0},
 };
 
 static const u8 sDoorAnimPalettes_835B4D8[] = {2, 2, 2, 2, 2, 2, 2, 2}; // door 00
@@ -403,39 +403,42 @@ static const u8 sDoorAnimPalettes_835B5C0[] = {8, 8, 8, 8, 8, 8, 8, 8}; // door 
 static const u8 sDoorAnimPalettes_835B5C8[] = {8, 8, 2, 2, 2, 2, 2, 2}; // door 30
 static const u8 sDoorAnimPalettes_835B5D0[] = {11, 11, 2, 2, 2, 2, 2, 2}; // door 31
 
-static const struct DoorGraphics gDoorAnimGraphicsTable[]={
-    {0X03d, 0, 0, sDoorAnimTiles_00, sDoorAnimPalettes_835B4D8}, // door 00
-    {0X062, 1, 0, sDoorAnimTiles_01, sDoorAnimPalettes_835B4E0}, // door 01
-    {0X15b, 1, 0, sDoorAnimTiles_02, sDoorAnimPalettes_835B4E8}, // door 02
-    {0X2a3, 0, 0, sDoorAnimTiles_03, sDoorAnimPalettes_835B4F0}, // door 03
-    {0X2ac, 0, 0, sDoorAnimTiles_04, sDoorAnimPalettes_835B4F8}, // door 04
-    {0X299, 0, 0, sDoorAnimTiles_05, sDoorAnimPalettes_835B500}, // door 05
-    {0X2ce, 0, 0, sDoorAnimTiles_06, sDoorAnimPalettes_835B508}, // door 06
-    {0X284, 0, 0, sDoorAnimTiles_07, sDoorAnimPalettes_835B510}, // door 07
-    {0X2bc, 1, 0, sDoorAnimTiles_08, sDoorAnimPalettes_835B518}, // door 08
-    {0X298, 0, 0, sDoorAnimTiles_09, sDoorAnimPalettes_835B520}, // door 09
-    {0X2a2, 0, 0, sDoorAnimTiles_10, sDoorAnimPalettes_835B528}, // door 10
-    {0X29e, 0, 0, sDoorAnimTiles_11, sDoorAnimPalettes_835B530}, // door 11
-    {0X2e1, 0, 0, sDoorAnimTiles_12, sDoorAnimPalettes_835B538}, // door 12
-    {0X294, 1, 0, sDoorAnimTiles_13, sDoorAnimPalettes_835B540}, // door 13
-    {0X2bf, 0, 0, sDoorAnimTiles_14, sDoorAnimPalettes_835B548}, // door 14
-    {0X2d2, 1, 0, sDoorAnimTiles_15, sDoorAnimPalettes_835B550}, // door 15
-    {0X2ad, 0, 0, sDoorAnimTiles_16, sDoorAnimPalettes_835B558}, // door 16
-    {0X297, 0, 0, sDoorAnimTiles_17, sDoorAnimPalettes_835B588}, // door 17
-    {0X29b, 1, 0, sDoorAnimTiles_18, sDoorAnimPalettes_835B590}, // door 18
-    {0X2eb, 0, 0, sDoorAnimTiles_19, sDoorAnimPalettes_835B598}, // door 19
-    {0X29a, 0, 0, sDoorAnimTiles_20, sDoorAnimPalettes_835B5A0}, // door 20
-    {0X2b9, 0, 0, sDoorAnimTiles_21, sDoorAnimPalettes_835B5A8}, // door 21
-    {0X2af, 0, 0, sDoorAnimTiles_22, sDoorAnimPalettes_835B5B0}, // door 22
-    {0X30c, 0, 0, sDoorAnimTiles_23, sDoorAnimPalettes_835B5B8}, // door 23
-    {0X28d, 1, 1, sDoorAnimTiles_24, sDoorAnimPalettes_835B560}, // door 24
-    {0X2de, 1, 1, sDoorAnimTiles_25, sDoorAnimPalettes_835B568}, // door 25
-    {0X2ab, 1, 1, sDoorAnimTiles_26, sDoorAnimPalettes_835B570}, // door 26
-    {0X281, 0, 1, sDoorAnimTiles_27, sDoorAnimPalettes_835B578}, // door 27
-    {0X2e2, 1, 1, sDoorAnimTiles_28, sDoorAnimPalettes_835B580}, // door 28
-    {0X296, 1, 1, sDoorAnimTiles_29, sDoorAnimPalettes_835B5C0}, // door 29
-    {0X2c3, 1, 1, sDoorAnimTiles_30, sDoorAnimPalettes_835B5C8}, // door 30
-    {0X356, 1, 1, sDoorAnimTiles_31, sDoorAnimPalettes_835B5D0}, // door 31
+#define SMALL FALSE
+#define BIG   TRUE
+
+static const struct DoorGraphics sDoorAnimGraphicsTable[]={
+    {.metatileNum = 0x03D, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_00, .palette = sDoorAnimPalettes_835B4D8}, // door 00
+    {.metatileNum = 0x062, .sound = TRUE,  .size = SMALL, .tiles = sDoorAnimTiles_01, .palette = sDoorAnimPalettes_835B4E0}, // door 01
+    {.metatileNum = 0x15B, .sound = TRUE,  .size = SMALL, .tiles = sDoorAnimTiles_02, .palette = sDoorAnimPalettes_835B4E8}, // door 02
+    {.metatileNum = 0x2A3, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_03, .palette = sDoorAnimPalettes_835B4F0}, // door 03
+    {.metatileNum = 0x2AC, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_04, .palette = sDoorAnimPalettes_835B4F8}, // door 04
+    {.metatileNum = 0x299, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_05, .palette = sDoorAnimPalettes_835B500}, // door 05
+    {.metatileNum = 0x2CE, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_06, .palette = sDoorAnimPalettes_835B508}, // door 06
+    {.metatileNum = 0x284, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_07, .palette = sDoorAnimPalettes_835B510}, // door 07
+    {.metatileNum = 0x2BC, .sound = TRUE,  .size = SMALL, .tiles = sDoorAnimTiles_08, .palette = sDoorAnimPalettes_835B518}, // door 08
+    {.metatileNum = 0x298, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_09, .palette = sDoorAnimPalettes_835B520}, // door 09
+    {.metatileNum = 0x2A2, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_10, .palette = sDoorAnimPalettes_835B528}, // door 10
+    {.metatileNum = 0x29E, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_11, .palette = sDoorAnimPalettes_835B530}, // door 11
+    {.metatileNum = 0x2E1, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_12, .palette = sDoorAnimPalettes_835B538}, // door 12
+    {.metatileNum = 0x294, .sound = TRUE,  .size = SMALL, .tiles = sDoorAnimTiles_13, .palette = sDoorAnimPalettes_835B540}, // door 13
+    {.metatileNum = 0x2BF, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_14, .palette = sDoorAnimPalettes_835B548}, // door 14
+    {.metatileNum = 0x2D2, .sound = TRUE,  .size = SMALL, .tiles = sDoorAnimTiles_15, .palette = sDoorAnimPalettes_835B550}, // door 15
+    {.metatileNum = 0x2AD, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_16, .palette = sDoorAnimPalettes_835B558}, // door 16
+    {.metatileNum = 0x297, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_17, .palette = sDoorAnimPalettes_835B588}, // door 17
+    {.metatileNum = 0x29B, .sound = TRUE,  .size = SMALL, .tiles = sDoorAnimTiles_18, .palette = sDoorAnimPalettes_835B590}, // door 18
+    {.metatileNum = 0x2EB, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_19, .palette = sDoorAnimPalettes_835B598}, // door 19
+    {.metatileNum = 0x29A, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_20, .palette = sDoorAnimPalettes_835B5A0}, // door 20
+    {.metatileNum = 0x2B9, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_21, .palette = sDoorAnimPalettes_835B5A8}, // door 21
+    {.metatileNum = 0x2AF, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_22, .palette = sDoorAnimPalettes_835B5B0}, // door 22
+    {.metatileNum = 0x30C, .sound = FALSE, .size = SMALL, .tiles = sDoorAnimTiles_23, .palette = sDoorAnimPalettes_835B5B8}, // door 23
+    {.metatileNum = 0x28D, .sound = TRUE,  .size = BIG, .tiles = sDoorAnimTiles_24, .palette = sDoorAnimPalettes_835B560}, // door 24
+    {.metatileNum = 0x2DE, .sound = TRUE,  .size = BIG, .tiles = sDoorAnimTiles_25, .palette = sDoorAnimPalettes_835B568}, // door 25
+    {.metatileNum = 0x2AB, .sound = TRUE,  .size = BIG, .tiles = sDoorAnimTiles_26, .palette = sDoorAnimPalettes_835B570}, // door 26
+    {.metatileNum = 0x281, .sound = FALSE, .size = BIG, .tiles = sDoorAnimTiles_27, .palette = sDoorAnimPalettes_835B578}, // door 27
+    {.metatileNum = 0x2E2, .sound = TRUE,  .size = BIG, .tiles = sDoorAnimTiles_28, .palette = sDoorAnimPalettes_835B580}, // door 28
+    {.metatileNum = 0x296, .sound = TRUE,  .size = BIG, .tiles = sDoorAnimTiles_29, .palette = sDoorAnimPalettes_835B5C0}, // door 29
+    {.metatileNum = 0x2C3, .sound = TRUE,  .size = BIG, .tiles = sDoorAnimTiles_30, .palette = sDoorAnimPalettes_835B5C8}, // door 30
+    {.metatileNum = 0x356, .sound = TRUE,  .size = BIG, .tiles = sDoorAnimTiles_31, .palette = sDoorAnimPalettes_835B5D0}, // door 31
     {0, 0, 0, NULL, NULL},
 };
 
@@ -443,7 +446,7 @@ static void DrawDoor(const struct DoorGraphics *gfx, const struct DoorAnimFrame 
 static void DrawClosedDoorTiles(const struct DoorGraphics *gfx, int x, int y);
 static void CopyDoorTilesToVram(const void *src);
 static void DrawCurrentDoorAnimFrame(const struct DoorGraphics *gfx, int x, int y, const u8 *pal);
-static void DoorBuildBlockdef(u16 *a, u16 b, const u8 *c);
+static void DoorBuildBlockdef(u16 *a, u16 b, const u8 *pal);
 static void Task_AnimateDoor(u8 taskId);
 static bool32 DrawNextFrame(const struct DoorGraphics *gfx, struct DoorAnimFrame *frames, s16 *taskData);
 static const struct DoorGraphics *GetDoorGraphics(const struct DoorGraphics *gfx, u16 metatileNum);
@@ -458,9 +461,12 @@ static s8 CurMapdataGetDoorX2At(const struct DoorGraphics *gfx, u32 x, u32 y);
 
 static void DrawDoor(const struct DoorGraphics *gfx, const struct DoorAnimFrame *frame, int x, int y)
 {
-    if(frame->offset == 0xffff)
+    if (frame->offset == 0xFFFF)
+    {
         DrawClosedDoorTiles(gfx, x, y);
-    else{
+    }
+    else
+    {
         CopyDoorTilesToVram(gfx->tiles + frame->offset);
         DrawCurrentDoorAnimFrame(gfx, x, y, gfx->palette);
     }
@@ -468,9 +474,12 @@ static void DrawDoor(const struct DoorGraphics *gfx, const struct DoorAnimFrame 
 
 static void DrawClosedDoorTiles(const struct DoorGraphics *gfx, int x, int y)
 {
-    if(gfx->size == 0)
+    if (gfx->size == SMALL)
+    {
         CurrentMapDrawMetatileAt(x,y);
-    else{
+    }
+    else
+    {
         CurrentMapDrawMetatileAt(x,y);
         CurrentMapDrawMetatileAt(x, y-1);
     }
@@ -484,9 +493,12 @@ static void CopyDoorTilesToVram(const void *src)
 static void DrawCurrentDoorAnimFrame(const struct DoorGraphics *gfx, int x, int y, const u8 *pal)
 {
     u16 arr[8];
-    if(gfx->size == 0)
+    if (gfx->size == SMALL)
+    {
         DoorBuildBlockdef(arr, 0x3F8, pal);
-    else{
+    }
+    else
+    {
         DoorBuildBlockdef(arr, 0x3F8, pal);
         sub_805A91C(x, y - 1, arr);
         DoorBuildBlockdef(arr, 0x3FC, pal + 4);
@@ -494,18 +506,18 @@ static void DrawCurrentDoorAnimFrame(const struct DoorGraphics *gfx, int x, int 
     sub_805A91C(x, y, arr);
 }
 
-static void DoorBuildBlockdef(u16 *a, u16 b, const u8 *c)
+static void DoorBuildBlockdef(u16 *a, u16 b, const u8 *pal)
 {
     int i;
     u16 unk;
     for (i = 0; i < 4; i++)
     {
-        unk = *(c++) << 12;
+        unk = *(pal++) << 12;
         a[i] = unk | (b + i);
     }
     for (; i < 8; i++)
     {
-        unk = *(c++) << 12;
+        unk = *(pal++) << 12;
         a[i] = unk;
     }
 }
@@ -562,7 +574,9 @@ static const struct DoorGraphics *GetDoorGraphics(const struct DoorGraphics *gfx
 static s8 StartDoorAnimationTask(const struct DoorGraphics *gfx, const struct DoorAnimFrame *frames, u32 x, u32 y)
 {
     if (FuncIsActiveTask(Task_AnimateDoor) == TRUE)
+    {
         return -1;
+    }
     else
     {
         u8 taskId = CreateTask(Task_AnimateDoor, 0x50);
@@ -592,8 +606,9 @@ static void DrawOpenedDoor(const struct DoorGraphics *gfx, u32 x, u32 y)
 {
     const struct DoorAnimFrame *frame;
     gfx = GetDoorGraphics(gfx, MapGridGetMetatileIdAt(x, y));
-    if (gfx != NULL){
-        frame = gfx->size == 0 ? sDoorOpenAnimFrames : sBigDoorOpenAnimFrames;
+    if (gfx != NULL)
+    {
+        frame = gfx->size == SMALL ? sDoorOpenAnimFrames : sBigDoorOpenAnimFrames;
         DrawDoor(gfx, GetLastDoorFrame(frame, frame), x, y);
     }
 }
@@ -611,9 +626,12 @@ static s8 StartDoorOpenAnimation(const struct DoorGraphics *gfx, u32 x, u32 y)
 {
     gfx = GetDoorGraphics(gfx, MapGridGetMetatileIdAt(x, y));
     if (gfx == NULL)
+    {
         return -1;
-    else{
-        if(gfx->size == 0)
+    }
+    else
+    {
+        if(gfx->size == SMALL)
             return StartDoorAnimationTask(gfx, sDoorOpenAnimFrames, x, y);
         else 
             return StartDoorAnimationTask(gfx, sBigDoorOpenAnimFrames, x, y);
@@ -625,9 +643,12 @@ static s8 StartDoorCloseAnimation(const struct DoorGraphics *gfx, u32 x, u32 y)
 {
     gfx = GetDoorGraphics(gfx, MapGridGetMetatileIdAt(x, y));
     if (gfx == NULL)
+    {
         return -1;
-    else{
-        if(gfx->size == 0)
+    }
+    else
+    {
+        if(gfx->size == SMALL)
             return StartDoorAnimationTask(gfx, sDoorCloseAnimFrames, x, y);
         else 
             return StartDoorAnimationTask(gfx, sBigDoorCloseAnimFrames, x, y);
@@ -637,13 +658,13 @@ static s8 StartDoorCloseAnimation(const struct DoorGraphics *gfx, u32 x, u32 y)
 void FieldSetDoorOpened(u32 x, u32 y)
 {
     if (MetatileBehavior_IsWarpDoor_2(MapGridGetMetatileBehaviorAt((s16)x, (s16)y)))
-        DrawOpenedDoor(gDoorAnimGraphicsTable, x, y);
+        DrawOpenedDoor(sDoorAnimGraphicsTable, x, y);
 }
 
 void FieldSetDoorClosed(u32 x, u32 y)
 {
     if (MetatileBehavior_IsWarpDoor_2(MapGridGetMetatileBehaviorAt((s16)x, (s16)y)))
-        DrawClosedDoor(gDoorAnimGraphicsTable, x, y);
+        DrawClosedDoor(sDoorAnimGraphicsTable, x, y);
 }
 
 s8 FieldAnimateDoorClose(u32 x, u32 y)
@@ -651,7 +672,7 @@ s8 FieldAnimateDoorClose(u32 x, u32 y)
     if (!MetatileBehavior_IsWarpDoor_2(MapGridGetMetatileBehaviorAt((s16)x, (s16)y)))
         return -1;
     else
-        return StartDoorCloseAnimation(gDoorAnimGraphicsTable, x, y);
+        return StartDoorCloseAnimation(sDoorAnimGraphicsTable, x, y);
 }
 
 
@@ -660,7 +681,7 @@ s8 FieldAnimateDoorOpen(u32 x, u32 y)
     if (!MetatileBehavior_IsWarpDoor_2(MapGridGetMetatileBehaviorAt((s16)x, (s16)y)))
         return -1;
     else
-        return StartDoorOpenAnimation(gDoorAnimGraphicsTable, x, y);
+        return StartDoorOpenAnimation(sDoorAnimGraphicsTable, x, y);
 }
 
 bool8 FieldIsDoorAnimationRunning(void)
@@ -670,7 +691,7 @@ bool8 FieldIsDoorAnimationRunning(void)
     
 u32 GetDoorSoundEffect(u32 x, u32 y)
 {
-    int sound = CurMapdataGetDoorX2At(gDoorAnimGraphicsTable, x, y);
+    int sound = CurMapdataGetDoorX2At(sDoorAnimGraphicsTable, x, y);
     if (sound == 0)
         return SE_W253;
     else

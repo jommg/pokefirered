@@ -27,4 +27,6 @@ extern u16 gUnknown_03005DE8;
 void DrawWholeMapView(void);
 void CurrentMapDrawMetatileAt(int x, int y);
 
+extern void sub_805A91C(int x, int y, u16 *arr);
+
 #endif //GUARD_FIELD_CAMERA_H
